@@ -1,4 +1,4 @@
-<nav class="navbar navbar-expand-lg navbar-light navbar-store fixed-top navbar-fixed-top" data-aos="fade-down">
+<nav class="navbar navbar-expand-lg navbar-light navbar-store fixed-top navbar-fixed-top shadow" data-aos="fade-down">
   <div class="container">
     <a class="navbar-brand" href="{{ route('home') }}">
       <img src="/images/logo.svg" alt="" />
@@ -19,10 +19,10 @@
           <a class="nav-link" href="#">Rewards</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="/register.html">Sign Up</a>
+          <a class="nav-link" href="{{ route('register') }}">Sign Up</a>
         </li>
         <li class="nav-item">
-          <a class="btn btn-success nav-link px-4 text-white" href="/login.html">Sign In</a>
+          <a class="btn btn-success nav-link px-4 text-white" href="{{ route('login') }}">Sign In</a>
         </li>
       </ul>
     </div>
