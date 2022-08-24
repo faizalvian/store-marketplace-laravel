@@ -1,14 +1,20 @@
 @extends('layouts.admin')
+
 @section('title')
-Store Admin Dashboard Categories
+    Store Dashboard
 @endsection
+
 @section('content')
-<div class="section-content section-dashboard-home" data-aos="fade-up">
+<!-- Section Content -->
+<div
+    class="section-content section-dashboard-home"
+    data-aos="fade-up"
+    >
     <div class="container-fluid">
         <div class="dashboard-heading">
-            <h2 class="dashboard-title">Categories</h2>
+            <h2 class="dashboard-title">User</h2>
             <p class="dashboard-subtitle">
-                List of Categories
+                List of User
             </p>
         </div>
         <div class="dashboard-content">
@@ -16,17 +22,19 @@ Store Admin Dashboard Categories
                 <div class="col-md-12">
                     <div class="card">
                         <div class="card-body">
-                            <a href="{{ route('categories.create') }}" class="btn btn-primary mb-3">Buat Baru</a>
+                            <a href="{{  route('user.create') }}" class="btn btn-primary mb-3">
+                                + Tambah User Baru
+                            </a>
                             <div class="table-responsive">
-                                <table class="table-hover scroll-horizontal-vertical w-100" id="crudtable">
+                                <table class="table table-hover scroll-horizontal-vertical w-100" id="crudTable">
                                     <thead>
-                                        <tr>
-                                            <th>Id</th>
-                                            <th>Nama</th>
-                                            <th>Foto</th>
-                                            <th>Slug</th>
-                                            <th>Aksi</th>
-                                        </tr>
+                                    <tr>
+                                        <th>ID</th>
+                                        <th>Nama</th>
+                                        <th>Email</th>
+                                        <th>Roles</th>
+                                        <th>Aksi</th>
+                                    </tr>
                                     </thead>
                                     <tbody></tbody>
                                 </table>
@@ -40,28 +48,30 @@ Store Admin Dashboard Categories
 </div>
 @endsection
 
+
 @push('addon-script')
-<script>
-    var datatable = $('#crudtable').DataTable({
+    <script>
+        // AJAX DataTable
+        var datatable = $('#crudTable').DataTable({
             processing: true,
             serverSide: true,
-            orderImg: true,
+            ordering: true,
             ajax: {
                 url: '{!! url()->current() !!}',
             },
             columns: [
                 { data: 'id', name: 'id' },
                 { data: 'name', name: 'name' },
-                { data: 'image', name: 'image' },
-                { data: 'slug', name: 'slug' },
+                { data: 'email', name: 'email' },
+                { data: 'roles', name: 'roles' },
                 {
                     data: 'action',
                     name: 'action',
                     orderable: false,
-                    searcable: false,
+                    searchable: false,
                     width: '15%'
                 },
             ]
-        })
-</script>
+        });
+    </script>
 @endpush

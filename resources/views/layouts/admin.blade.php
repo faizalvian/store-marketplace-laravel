@@ -35,7 +35,8 @@
                     <a href="/dashboard-products.html" class="list-group-item list-group-item-action">Products</a>
                     <a href="/dashboard-transactions.html"
                         class="list-group-item list-group-item-action">Transactions</a>
-                    <a href="/dashboard-settings.html" class="list-group-item list-group-item-action">Users</a>
+                    <a href="{{ route('user.index') }}"
+                        class="list-group-item list-group-item-action {{ (request()->is('admin/user*')) ? 'active' : '' }}">Users</a>
                 </div>
             </div>
             <!-- /#sidebar-wrapper -->
